@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/heximaps/heximaps/issues"
   },
-  "homepage": "https://github.com/heximaps/heximaps#readme"
+  "homepage": "https://github.com/heximaps/heximaps#readme",
+  "devDependencies": {
+    "webpack": "^1.12.14"
+  }
 }
