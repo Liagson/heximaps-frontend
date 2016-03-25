@@ -21,6 +21,13 @@ export default class Map{
         });
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
+
+        const geometry = new THREE.PlaneGeometry(200, 200);
+        const material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
+
+        const tileBg = new THREE.Mesh(geometry, material);
+
+        this._scene.add(tileBg);
     }
     render(){
         this._renderer.render(this._scene, this._camera);
