@@ -1,6 +1,7 @@
 /**
  * Created by tello on 25/03/2016.
  */
+import mapCss from './Map.css';
 import MapWorld from '../MapWorld';
 import React from 'react';
 
@@ -12,12 +13,36 @@ export default class Map extends React.Component {
             height: 800,
             width: 800
         };
+
+        this._map = null;
     }
     componentDidMount(){
         this._map = new MapWorld(this.refs.map);
         this._map.render();
+
+        window.addEventListener('resize', this._updateSize.bind(this));
+    }
+    componentWillUnmount(){
+        window.removeEventListener('resize', this._updateSize.bind(this));
+
+        this._map = null;
+    }
+    _updateSize(){
+        const height = this.refs.container.offsetHeight;
+        const width = this.refs.container.offsetWidth;
+
+        this._map.setSize(width, height);
+
+        this.setState({
+            height: height,
+            width: width
+        });
     }
     render() {
-        return <canvas className="map" ref="map" id="canvas" height={this.state.height} width={this.state.width}></canvas>;
+        if(this._map !== null){
+            this._map.render();
+        }
+
+        return <div className="map-container" ref="container"><canvas className="map" ref="map" id="canvas" height={this.state.height} width={this.state.width}></canvas></div>;
     }
 }

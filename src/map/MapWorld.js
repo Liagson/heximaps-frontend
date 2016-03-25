@@ -32,4 +32,11 @@ export default class MapWorld{
     render(){
         this._renderer.render(this._scene, this._camera);
     }
+    setSize(width, height){
+        this._camera.right = width;
+        this._camera.bottom = height;
+        this._camera.updateProjectionMatrix();
+
+        this._renderer.setSize(width, height);
+    }
 }
