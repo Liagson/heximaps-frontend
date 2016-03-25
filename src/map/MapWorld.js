@@ -3,7 +3,7 @@
  */
 import THREE from 'three';
 
-export default class Map{
+export default class MapWorld{
     constructor(canvas){
         this._canvas = canvas;
 

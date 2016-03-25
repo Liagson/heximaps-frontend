@@ -3,9 +3,10 @@
  */
 import domready from 'domready';
 import mainCss from './main.css';
-import Map from './map/Map';
+import Map from './map/components/Map';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 domready(function(){
-    const map = new Map(document.getElementById('canvas'));
-    map.render();
+    ReactDOM.render(<Map/>, document.getElementById('container'));
 });
