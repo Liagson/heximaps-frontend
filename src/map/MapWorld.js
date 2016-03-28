@@ -1,6 +1,7 @@
 /**
  * Created by tello on 23/03/2016.
  */
+import GridBg from './objects/GridBg';
 import THREE from 'three';
 
 export default class MapWorld{
@@ -22,12 +23,8 @@ export default class MapWorld{
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
 
-        const geometry = new THREE.PlaneGeometry(200, 200);
-        const material = new THREE.MeshBasicMaterial( {color: 0xffff00, side: THREE.DoubleSide} );
-
-        const tileBg = new THREE.Mesh(geometry, material);
-
-        this._scene.add(tileBg);
+        const gridBg = new GridBg();
+        this._scene.add(gridBg);
     }
     render(){
         this._renderer.render(this._scene, this._camera);
