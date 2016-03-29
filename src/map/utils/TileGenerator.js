@@ -11,14 +11,19 @@ const indices = [
 
 export default class TileGenerator{
     static generate(size = 1){
+        const displacement  = {
+            x: size,
+            y: Math.sqrt(3)/2 * size
+        };
+
         const vertices = new Array(6*2);
         //Calculate vertices
         for(let point = 0; point < 6; point++){
             const vrxPointBase = point*2;
 
             let angle = 2 * Math.PI / 6 * point;
-            vertices[vrxPointBase] =  size * Math.cos(angle);
-            vertices[vrxPointBase + 1]  =  size * Math.sin(angle);
+            vertices[vrxPointBase] =  size * Math.cos(angle) + displacement.x;
+            vertices[vrxPointBase + 1]  =  size * Math.sin(angle) + displacement.y;
         }
 
         return {
