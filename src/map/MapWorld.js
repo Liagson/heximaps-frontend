@@ -1,8 +1,7 @@
 /**
  * Created by tello on 23/03/2016.
  */
-import GridBg from './objects/GridBg';
-import GridBorder from './objects/GridBorder';
+import Grid from './objects/Grid';
 import THREE from 'three';
 
 export default class MapWorld{
@@ -24,11 +23,7 @@ export default class MapWorld{
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
 
-        const gridBg = new GridBg(numX, numY);
-        this._scene.add(gridBg);
-
-        const gridBorder = new GridBorder(numX, numY);
-        this._scene.add(gridBorder);
+        this._scene.add(new Grid(numX, numY));
     }
     render(){
         this._renderer.render(this._scene, this._camera);
