@@ -18,8 +18,8 @@ const InstancedHexagonBufferGeometry = function (numX, numY, size = 35){
 
     const gridCoordinate = new THREE.InstancedBufferAttribute(new Float32Array(tilesNum * 2), 2, 1);
     for(let y = 0; y < numY; y++){
-        for(let x = 0; x < numY; x++){
-            gridCoordinate.setXY(y*numY + x, x, y);
+        for(let x = 0; x < numX; x++){
+            gridCoordinate.setXY(y*numX + x, x, y);
         }
     }
     this.addAttribute('gridCoordinate', gridCoordinate);
