@@ -9,7 +9,7 @@ const GridBg = function (numX, numY){
     geometry.maxInstancedCount = numX * numY;
 
     const material = new THREE.MeshBasicMaterial({
-        color: 0xffff00
+        color: 0xF1F1F1
     });
 
     THREE.Mesh.call(this, geometry, material);
