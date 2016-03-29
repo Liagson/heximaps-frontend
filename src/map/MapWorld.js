@@ -6,7 +6,7 @@ import GridBorder from './objects/GridBorder';
 import THREE from 'three';
 
 export default class MapWorld{
-    constructor(canvas, numX = 5, numY = 5){
+    constructor(canvas, numX = 50, numY = 50){
         this._canvas = canvas;
 
         const width = canvas.offsetWidth;
