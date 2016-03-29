@@ -22,6 +22,14 @@ module.exports = {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
             },
+            {
+                test: /\.fs$/,
+                loader: 'raw'
+            },
+            {
+                test: /\.vs$/,
+                loader: 'raw'
+            }
         ]
     },
     output: {
