@@ -34,10 +34,12 @@
   },
   "dependencies": {
     "domready": "^1.0.8",
+    "immutable": "^3.7.6",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.1",
     "redux": "^3.3.1",
+    "redux-immutable": "^3.0.6",
     "three": "^0.75.0"
   }
 }
