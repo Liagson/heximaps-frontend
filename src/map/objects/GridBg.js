@@ -6,11 +6,17 @@ import gridBgVs from '../shaders/gridBg.vs';
 import InstancedHexagonBufferGeometry from '../geometries/InstancedHexagonBufferGeometry';
 import THREE from 'three';
 
-const GridBg = function (numX, numY){
-    const geometry = new InstancedHexagonBufferGeometry(numX, numY);
+const GridBg = function (numX, numY, size = 35){
+    const geometry = new InstancedHexagonBufferGeometry(numX, numY, size);
     const material = new THREE.ShaderMaterial({
         fragmentShader: gridBgFs,
-        vertexShader: gridBgVs
+        vertexShader: gridBgVs,
+        uniforms: {
+            size: {
+                type: 'f',
+                value: size
+            }
+        }
     });
 
     THREE.Mesh.call(this, geometry, material);
