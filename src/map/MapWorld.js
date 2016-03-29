@@ -5,7 +5,7 @@ import GridBg from './objects/GridBg';
 import THREE from 'three';
 
 export default class MapWorld{
-    constructor(canvas){
+    constructor(canvas, numX = 5, numY = 5){
         this._canvas = canvas;
 
         const width = canvas.offsetWidth;
@@ -23,7 +23,7 @@ export default class MapWorld{
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
 
-        const gridBg = new GridBg();
+        const gridBg = new GridBg(numX, numY);
         this._scene.add(gridBg);
     }
     render(){
