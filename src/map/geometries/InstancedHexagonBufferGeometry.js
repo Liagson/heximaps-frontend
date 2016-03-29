@@ -4,7 +4,9 @@
 import THREE from 'three';
 import TileGenerator from '../utils/TileGenerator';
 
-const InstancedHexagonBufferGeometry = function (size = 35){
+const InstancedHexagonBufferGeometry = function (numX, numY, size = 35){
+    const tilesNum = numX * numY;
+
     THREE.InstancedBufferGeometry.call(this);
 
     const generatedTile = TileGenerator.generate(size);
@@ -13,6 +15,14 @@ const InstancedHexagonBufferGeometry = function (size = 35){
     this.addAttribute('position', vertices);
 
     this.setIndex(new THREE.BufferAttribute(new Uint16Array(generatedTile.indices), 1));
+
+    const gridCoordinate = new THREE.InstancedBufferAttribute(new Float32Array(tilesNum * 2), 2, 1);
+    for(let y = 0; y < numY; y++){
+        for(let x = 0; x < numY; x++){
+            gridCoordinate.setXY(y*numY + x, x, y);
+        }
+    }
+    this.addAttribute('gridCoordinate', gridCoordinate);
 };
 
 InstancedHexagonBufferGeometry.prototype = Object.create(THREE.InstancedBufferGeometry.prototype);

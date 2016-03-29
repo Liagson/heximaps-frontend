@@ -5,7 +5,7 @@ import InstancedHexagonBufferGeometry from '../geometries/InstancedHexagonBuffer
 import THREE from 'three';
 
 const GridBg = function (numX, numY){
-    const geometry = new InstancedHexagonBufferGeometry();
+    const geometry = new InstancedHexagonBufferGeometry(numX, numY);
     geometry.maxInstancedCount = numX * numY;
 
     const material = new THREE.MeshBasicMaterial({
