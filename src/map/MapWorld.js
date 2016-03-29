@@ -2,6 +2,7 @@
  * Created by tello on 23/03/2016.
  */
 import GridBg from './objects/GridBg';
+import GridBorder from './objects/GridBorder';
 import THREE from 'three';
 
 export default class MapWorld{
@@ -25,6 +26,9 @@ export default class MapWorld{
 
         const gridBg = new GridBg(numX, numY);
         this._scene.add(gridBg);
+
+        const gridBorder = new GridBorder(numX, numY);
+        this._scene.add(gridBorder);
     }
     render(){
         this._renderer.render(this._scene, this._camera);
