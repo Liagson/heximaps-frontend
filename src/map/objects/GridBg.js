@@ -1,7 +1,7 @@
 /**
  * Created by tello on 25/03/2016.
  */
-import gridFs from '../shaders/grid.fs';
+import gridBgFs from '../shaders/gridBg.fs';
 import gridBgVs from '../shaders/gridBg.vs';
 import InstancedHexagonBufferGeometry from '../geometries/InstancedHexagonBufferGeometry';
 import THREE from 'three';
@@ -9,7 +9,7 @@ import THREE from 'three';
 const GridBg = function (numX, numY, size = 35){
     const geometry = new InstancedHexagonBufferGeometry(numX, numY, size);
     const material = new THREE.ShaderMaterial({
-        fragmentShader: gridFs,
+        fragmentShader: gridBgFs,
         vertexShader: gridBgVs,
         uniforms: {
             color: {
@@ -28,5 +28,8 @@ const GridBg = function (numX, numY, size = 35){
 
 GridBg.prototype = Object.create(THREE.Mesh.prototype);
 GridBg.prototype.constructor = GridBg;
+GridBg.prototype.setTileType = function(x, y, tileType){
+    debugger;
+};
 
 export default GridBg;
