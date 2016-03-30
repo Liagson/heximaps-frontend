@@ -2,7 +2,7 @@
  * Created by tello on 25/03/2016.
  */
 import gridFs from '../shaders/grid.fs';
-import gridBgVs from '../shaders/gridBg.vs';
+import gridBgVs from '../shaders/grid.vs';
 import InstancedHexagonBorderBufferGeometry from '../geometries/InstancedHexagonBorderBufferGeometry';
 import THREE from 'three';
 
