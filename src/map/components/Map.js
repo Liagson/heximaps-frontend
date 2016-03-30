@@ -17,7 +17,7 @@ export default class Map extends React.Component {
         this._map = null;
     }
     componentDidMount(){
-        this._map = new MapWorld(this.refs.map);
+        this._map = new MapWorld(this.refs.map, this.props.size.get('x'), this.props.size.get('y'));
         this._map.render();
 
         window.addEventListener('resize', this._updateSize.bind(this));
