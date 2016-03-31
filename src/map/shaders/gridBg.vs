@@ -1,6 +1,9 @@
 attribute vec2 gridCoordinate;
+attribute float tileType;
 
 uniform float size;
+
+varying float fTileType;
 
 mat4 getTranslationMatrix(){
     mat4 translationMatrix = mat4(1.0);
@@ -15,5 +18,6 @@ mat4 getTranslationMatrix(){
 }
 
 void main() {
+    fTileType = tileType;
     gl_Position = projectionMatrix * modelViewMatrix * getTranslationMatrix() * vec4(position, 1.0 );
 }
