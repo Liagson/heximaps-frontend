@@ -27,13 +27,18 @@ export default class Map extends React.Component {
         map.render();
 
         window.addEventListener('resize', this._updateSize.bind(this));
+        this.refs.map.addEventListener('mousemove', this._updateMousePosition.bind(this));
 
         this._map = map;
     }
     componentWillUnmount(){
         window.removeEventListener('resize', this._updateSize.bind(this));
+        this.refs.map.removeEventListener('mousemove', this._updateMousePosition.bind(this));
 
         this._map = null;
+    }
+    _updateMousePosition(event){
+        this.props.onMouseMove(event.clientX, event.clientY);
     }
     _updateSize(){
         const height = this.refs.container.offsetHeight;

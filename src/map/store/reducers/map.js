@@ -1,12 +1,17 @@
 /**
  * Created by tello on 29/03/2016.
  */
+import {MOUSE_MOVE} from '../../constants';
 import Immutable from 'immutable';
 
 const map = function(state = [], action){
     switch (action.type) {
         case "@@INIT":
             return Immutable.fromJS({
+                cursor: {
+                    x: 0,
+                    y: 0
+                },
                 size: {
                     x: 5,
                     y: 5
@@ -18,6 +23,14 @@ const map = function(state = [], action){
                     [0, 4, 3, 0, 1],
                     [1, 3, 0, 2, 0]
                 ]
+            });
+            break;
+        case MOUSE_MOVE:
+            return state.merge({
+                cursor: {
+                    x: action.x,
+                    y: action.y
+                }
             });
             break;
         default:
