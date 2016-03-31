@@ -21,4 +21,9 @@ Grid.prototype.setTileType = function(x, y, tileType){
     this._gridBg.setTileType(x, y, tileType);
 };
 
+Grid.prototype.dispose = function(){
+    this._gridBg.dispose();
+    this._gridBorder.dispose();
+};
+
 export default Grid;

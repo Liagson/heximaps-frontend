@@ -28,5 +28,9 @@ const GridBorder = function (numX, numY, size = 35){
 
 GridBorder.prototype = Object.create(THREE.Line.prototype);
 GridBorder.prototype.constructor = GridBorder;
+GridBorder.prototype.dispose = function(){
+    this.geometry.dispose();
+    this.material.dispose();
+};
 
 export default GridBorder;

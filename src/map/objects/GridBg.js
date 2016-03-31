@@ -35,5 +35,9 @@ GridBg.prototype.setTileType = function(x, y, tileType){
     const tileAttr = this.geometry.attributes.tileType;
     tileAttr.setX(y*this._numX + x, tileType);
 };
+GridBg.prototype.dispose = function(){
+    this.geometry.dispose();
+    this.material.dispose();
+};
 
 export default GridBg;

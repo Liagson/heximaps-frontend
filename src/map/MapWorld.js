@@ -25,6 +25,8 @@ export default class MapWorld{
 
         this._grid = new Grid(numX, numY);
         this._scene.add(this._grid);
+
+        canvas.addEventListener('mousemove', this._onMouseMoved.bind(this));
     }
     render(){
         this._renderer.render(this._scene, this._camera);
@@ -38,5 +40,13 @@ export default class MapWorld{
     }
     setTileType(x, y, tileType){
         this._grid.setTileType(x, y, tileType);
+    }
+    _onMouseMoved(event){
+
+    }
+    dispose(){
+        this._canvas.removeEventListener('mousemove', this._onMouseMoved.bind(this));
+
+        this._grid.dispose();
     }
 }
