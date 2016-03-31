@@ -24,6 +24,8 @@ const InstancedHexagonBufferGeometry = function (numX, numY, size = 35){
     }
     this.addAttribute('gridCoordinate', gridCoordinate);
 
+    this.addAttribute('tileType', new THREE.InstancedBufferAttribute(new Float32Array(tilesNum), 1, 1));
+
     this.maxInstancedCount = tilesNum;
 };
 

@@ -17,10 +17,18 @@ export default class Map extends React.Component {
         this._map = null;
     }
     componentDidMount(){
-        this._map = new MapWorld(this.refs.map, this.props.size.get('x'), this.props.size.get('y'));
-        this._map.render();
+        const map = new MapWorld(this.refs.map, this.props.size.get('x'), this.props.size.get('y'));
+        //Initialize tiles with the types of the model
+        this.props.tiles.forEach(function(row, y){
+            row.forEach(function(tileType, x){
+                map.setTileType(x, y, tileType);
+            });
+        });
+        map.render();
 
         window.addEventListener('resize', this._updateSize.bind(this));
+
+        this._map = map;
     }
     componentWillUnmount(){
         window.removeEventListener('resize', this._updateSize.bind(this));

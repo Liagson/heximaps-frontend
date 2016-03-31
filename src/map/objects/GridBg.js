@@ -23,13 +23,17 @@ const GridBg = function (numX, numY, size = 35){
         }
     });
 
+    this._numX = numX;
+    this._numY = numY;
+
     THREE.Mesh.call(this, geometry, material);
 };
 
 GridBg.prototype = Object.create(THREE.Mesh.prototype);
 GridBg.prototype.constructor = GridBg;
 GridBg.prototype.setTileType = function(x, y, tileType){
-    debugger;
+    const tileAttr = this.geometry.attributes.tileType;
+    tileAttr.setX(y*this._numX + x, tileType);
 };
 
 export default GridBg;

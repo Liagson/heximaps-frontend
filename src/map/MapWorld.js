@@ -23,7 +23,8 @@ export default class MapWorld{
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
 
-        this._scene.add(new Grid(numX, numY));
+        this._grid = new Grid(numX, numY);
+        this._scene.add(this._grid);
     }
     render(){
         this._renderer.render(this._scene, this._camera);
@@ -34,5 +35,8 @@ export default class MapWorld{
         this._camera.updateProjectionMatrix();
 
         this._renderer.setSize(width, height);
+    }
+    setTileType(x, y, tileType){
+        this._grid.setTileType(x, y, tileType);
     }
 }
