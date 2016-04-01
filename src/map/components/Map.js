@@ -17,7 +17,12 @@ export default class Map extends React.Component {
         this._map = null;
     }
     componentDidMount(){
+        const component = this;
+
         const map = new MapWorld(this.refs.map, this.props.size.get('x'), this.props.size.get('y'));
+        map.setCursorSectorListener(function(x, y){
+            component.props.onCursorSectorChanged(x, y);
+        });
         //Initialize tiles with the types of the model
         this.props.tiles.forEach(function(row, y){
             row.forEach(function(tileType, x){

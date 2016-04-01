@@ -1,7 +1,7 @@
 /**
  * Created by tello on 29/03/2016.
  */
-import {MOUSE_MOVE} from '../../constants';
+import {CURSOR_CHANGE} from '../../constants';
 import Immutable from 'immutable';
 
 const map = function(state = [], action){
@@ -25,7 +25,7 @@ const map = function(state = [], action){
                 ]
             });
             break;
-        case MOUSE_MOVE:
+        case CURSOR_CHANGE:
             return state.merge({
                 cursor: {
                     x: action.x,

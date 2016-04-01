@@ -2,7 +2,7 @@
  * Created by tello on 30/03/2016.
  */
 import Map from '../components/Map';
-import {mouseMove} from '../actions/mouse';
+import {changeCursor} from '../actions/cursor';
 import { Provider } from 'react-redux'
 import React, { Component } from 'react';
 
@@ -13,7 +13,7 @@ class Root extends Component {
 
         return <div className="root-container">
                 <Provider store={this.props.store}>
-                    <Map size={mapSize} tiles={mapTiles} onMouseMove={this.props.mouseMove}/>
+                    <Map size={mapSize} tiles={mapTiles} onCursorSectorChanged={this.props.changeCursor}/>
                 </Provider>
             </div>;
     }
@@ -23,4 +23,4 @@ export default connect(function(state){
     return {
         map: state.get('map')
     };
-}, {mouseMove})(Root);
+}, {changeCursor})(Root);

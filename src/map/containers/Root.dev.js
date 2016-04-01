@@ -4,7 +4,7 @@
 import { connect } from 'react-redux'
 import DevTools from '../containers/DevTools';
 import Map from '../components/Map';
-import {mouseMove} from '../actions/mouse';
+import {changeCursor} from '../actions/cursor';
 import { Provider } from 'react-redux'
 import React, { Component } from 'react';
 
@@ -15,7 +15,7 @@ class Root extends Component {
 
         return <div className="root-container">
             <Provider store={this.props.store}>
-                <Map size={mapSize} tiles={mapTiles} onMouseMove={this.props.mouseMove}/>
+                <Map size={mapSize} tiles={mapTiles} onCursorSectorChanged={this.props.changeCursor}/>
             </Provider>
             <DevTools store={this.props.store}/>
         </div>;
@@ -26,4 +26,4 @@ export default connect(function(state){
     return {
         map: state.get('map')
     };
-}, {mouseMove})(Root);
+}, {changeCursor})(Root);

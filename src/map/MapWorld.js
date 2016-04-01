@@ -7,6 +7,11 @@ import THREE from 'three';
 export default class MapWorld{
     constructor(canvas, numX = 50, numY = 50){
         this._canvas = canvas;
+        this._cachedCursorSector = {
+            x: -1,
+            y: -1
+        };
+        this._cursorSectorListener = function(){};
 
         const width = canvas.offsetWidth;
         const height = canvas.offsetHeight;
@@ -42,7 +47,14 @@ export default class MapWorld{
         this._grid.setTileType(x, y, tileType);
     }
     _onMouseMoved(event){
-
+        const cursorSector = this._grid.getCursorSectorForPosition(event.clientX, event.clientY);
+        if(cursorSector.x !== this._cachedCursorSector.x || cursorSector.y !== this._cachedCursorSector.y){
+            this._cursorSectorListener(cursorSector.x, cursorSector.y);
+            this._cachedCursorSector = cursorSector;
+        }
+    }
+    setCursorSectorListener(listener){
+        this._cursorSectorListener = listener;
     }
     dispose(){
         this._canvas.removeEventListener('mousemove', this._onMouseMoved.bind(this));
