@@ -33,8 +33,11 @@ class Map extends React.Component {
         //Tiles
         const tilesChanged = this.props.tiles !== nextProps.tiles;
 
+        //Cursor
+        const cursorChanged = this.props.cursor !== nextProps.cursor;
+
         const viewportChanged = this.state.height !== nextState.height || this.state.width !== nextState.width;
-        return viewportChanged || onCursorSectorChangedChanged || sizeChanged || tilesChanged;
+        return viewportChanged || onCursorSectorChangedChanged || sizeChanged || tilesChanged || cursorChanged;
     }
     componentDidMount(){
         const component = this;
@@ -82,6 +85,7 @@ class Map extends React.Component {
 }
 
 Map.propTypes = {
+    cursor: React.PropTypes.instanceOf(Immutable.Map).isRequired,
     onCursorSectorChanged: React.PropTypes.func.isRequired,
     size: React.PropTypes.instanceOf(Immutable.Map).isRequired,
     tiles: React.PropTypes.instanceOf(Immutable.List).isRequired
