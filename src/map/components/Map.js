@@ -21,6 +21,11 @@ class Map extends React.Component {
         const component = this;
 
         const onCursorSectorChangedChanged = this.props.onCursorSectorChanged !== nextProps.onCursorSectorChanged;
+        if(onCursorSectorChangedChanged){
+            this._map.setCursorSectorListener(function(x, y){
+                component.props.onCursorSectorChanged(x, y);
+            });
+        }
 
         //Size
         const sizeChanged = this.props.size !== nextProps.size;
