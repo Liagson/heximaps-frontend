@@ -17,6 +17,20 @@ class Map extends React.Component {
 
         this._map = null;
     }
+    shouldComponentUpdate(nextProps, nextState){
+        const component = this;
+
+        const onCursorSectorChangedChanged = this.props.onCursorSectorChanged !== nextProps.onCursorSectorChanged;
+
+        //Size
+        const sizeChanged = this.props.size !== nextProps.size;
+
+        //Tiles
+        const tilesChanged = this.props.tiles !== nextProps.tiles;
+
+        const viewportChanged = this.state.height !== nextState.height || this.state.width !== nextState.width;
+        return viewportChanged || onCursorSectorChangedChanged || sizeChanged || tilesChanged;
+    }
     componentDidMount(){
         const component = this;
 
