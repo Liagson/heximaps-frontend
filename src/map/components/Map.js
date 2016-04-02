@@ -1,11 +1,12 @@
 /**
  * Created by tello on 25/03/2016.
  */
+import Immutable from 'immutable';
 import mapCss from './Map.css';
 import MapWorld from '../MapWorld';
 import React from 'react';
 
-export default class Map extends React.Component {
+class Map extends React.Component {
     constructor(){
         super();
 
@@ -60,3 +61,11 @@ export default class Map extends React.Component {
         return <div className="map-container" ref="container"><canvas className="map" ref="map" id="canvas" height={this.state.height} width={this.state.width}></canvas></div>;
     }
 }
+
+Map.propTypes = {
+    onCursorSectorChanged: React.PropTypes.func.isRequired,
+    size: React.PropTypes.instanceOf(Immutable.Map).isRequired,
+    tiles: React.PropTypes.instanceOf(Immutable.List).isRequired
+};
+
+export default Map;
