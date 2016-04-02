@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="129.82222mm"
+   height="112.42934mm"
+   viewBox="0 0 459.99999 398.37166"
    id="svg4183"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -25,18 +25,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.061871843"
-     inkscape:cx="1233.8668"
-     inkscape:cy="578.88617"
+     inkscape:zoom="0.49497474"
+     inkscape:cx="43.919822"
+     inkscape:cy="-137.02063"
      inkscape:document-units="px"
      inkscape:current-layer="g5115-4"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     showguides="false" />
+     showguides="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata4188">
     <rdf:RDF>
@@ -45,14 +49,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-115.71428,-244.6049)">
     <g
        transform="matrix(0.73468499,0,0,0.7921782,-3979.065,-3310.4337)"
        style="stroke-width:1.31080461;stroke-miterlimit:4;stroke-dasharray:none"
@@ -60,7 +65,7 @@
       <path
          transform="matrix(1.3611276,0,0,1.2623422,5553.8708,4471.8961)"
          sodipodi:type="star"
-         style="opacity:1;fill:#cfe8bf;fill-opacity:1;stroke:#000000;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="opacity:1;fill:#cfe8bf;fill-opacity:1;stroke:none;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="path4244-4-2-9-5-0-8-4"
          sodipodi:sides="6"
          sodipodi:cx="244.43376"

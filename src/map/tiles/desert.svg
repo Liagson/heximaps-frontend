@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="210mm"
-   height="297mm"
-   viewBox="0 0 744.09448819 1052.3622047"
+   width="129.82222mm"
+   height="112.42934mm"
+   viewBox="0 0 459.99999 398.37169"
    id="svg5481"
    version="1.1"
    inkscape:version="0.91 r13725"
@@ -26,16 +26,20 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-152.14286"
-     inkscape:cy="520"
+     inkscape:cx="-713.57143"
+     inkscape:cy="153.47154"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="705"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata5486">
     <rdf:RDF>
@@ -51,14 +55,15 @@
   <g
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(-130,-287.46208)">
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#ffdd55;fill-opacity:1;stroke:#000000;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="opacity:1;fill:#ffdd55;fill-opacity:1;stroke:none;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4244-10-0"
        sodipodi:sides="6"
-       sodipodi:cx="-40"
-       sodipodi:cy="749.50506"
+       sodipodi:cx="360"
+       sodipodi:cy="486.64792"
        sodipodi:r1="230"
        sodipodi:r2="199.18584"
        sodipodi:arg1="0"
@@ -66,13 +71,13 @@
        inkscape:flatsided="true"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 190,749.50507 -115,199.18584 -230,0 -115,-199.18584 115,-199.18585 230,0 z"
+       d="m 590,486.64792 -115,199.18584 -230,0 -115,-199.18584 115,-199.18584 230,0 z"
        inkscape:export-filename="C:\Users\CARLOS ALIAGA\Desktop\inkscape\desierto.png"
        inkscape:export-xdpi="90"
        inkscape:export-ydpi="90" />
     <path
        style="opacity:1;fill:#aa8800;fill-opacity:1;stroke:#aa8800;stroke-width:3.29500008;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m -32.727922,770.00705 c 59.7474,-1.3627 85.8491,-6.6027 90.9833,-14.3058 1.56,-2.3404 0.8607,-6.7737 -1.5474,-9.8103 -6.4616,-8.1485 -24.8158,-19.3279 -48.3400996,-29.4439 l -8.8071,-4.2014 -6.9387,0.6546 c -12.5959004,1.972 -25.4333004,5.8009 -35.8203004,11.4129 -43.1113,23.2927 -70.296898,33.6891 -100.041998,42.143 l -4.4838,1.2743 0.8199,0.5667 c 11.7912,8.1492 94.892698,2.1497 114.176198,1.7099 z"
+       d="m 367.27208,507.14991 c 59.7474,-1.3627 85.8491,-6.6027 90.9833,-14.3058 1.56,-2.3404 0.8607,-6.7737 -1.5474,-9.8103 -6.4616,-8.1485 -24.8158,-19.3279 -48.3401,-29.4439 l -8.8071,-4.2014 -6.9387,0.6546 c -12.5959,1.972 -25.4333,5.8009 -35.8203,11.4129 -43.1113,23.2927 -70.2969,33.6891 -100.042,42.143 l -4.4838,1.2743 0.8199,0.5667 c 11.7912,8.1492 94.8927,2.1497 114.1762,1.7099 z"
        id="path4279-7-6"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sscsccsscss"
@@ -81,7 +86,7 @@
        inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:10;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 148.60878,760.54755 c 0,0 -104.030502,-92.355 -195.901602,-38.4813 -91.870998,53.8738 -143.210698,41.5598 -143.210698,41.5598"
+       d="m 548.60878,497.69041 c 0,0 -104.0305,-92.355 -195.9016,-38.4813 -91.871,53.8738 -143.2107,41.5598 -143.2107,41.5598"
        id="path4240-0-1"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="csc"
