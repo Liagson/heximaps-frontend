@@ -32,8 +32,20 @@ const GridBg = function (numX, numY, size = 35){
 GridBg.prototype = Object.create(THREE.Mesh.prototype);
 GridBg.prototype.constructor = GridBg;
 GridBg.prototype.setTileType = function(x, y, tileType){
+    const offset = y*this._numX + x;
+
     const tileAttr = this.geometry.attributes.tileType;
-    tileAttr.setX(y*this._numX + x, tileType);
+    tileAttr.setX(offset, tileType);
+
+    //If only one change set, use bufferSubData, if more changes set, update the entire attribute
+    if(tileAttr.updateRange.count === -1){
+        tileAttr.updateRange.offset = offset;
+        tileAttr.updateRange.count = 1;
+    }else{
+        tileAttr.updateRange.offset = 0;
+        tileAttr.updateRange.count = -1;
+    }
+    tileAttr.needsUpdate = true;
 };
 GridBg.prototype.dispose = function(){
     this.geometry.dispose();
