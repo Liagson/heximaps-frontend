@@ -3,6 +3,7 @@
  */
 var del = require('del');
 var gulp = require('gulp');
+var nsg = require('node-sprite-generator');
 var svg2png = require('gulp-svg2png');
 var webpack = require('webpack-stream');
 
@@ -26,15 +27,27 @@ gulp.task('build.source', function(){
 ///////////////////////////////////////////////////////
 // Tiles
 ///////////////////////////////////////////////////////
-gulp.task('tiles', ['tiles.clean', 'tiles.convert']);
+gulp.task('tiles', ['tiles.clean', 'tiles.convert', 'tiles.sprite']);
 gulp.task('tiles.clean', function () {
     return del([
         './web/build/tiles/'
     ]);
 });
 
-gulp.task('tiles.convert', function () {
-    gulp.src('./src/map/tiles/*.svg')
+gulp.task('tiles.convert', ['tiles.clean'],function () {
+    return gulp.src('./src/map/tiles/*.svg')
         .pipe(svg2png())
         .pipe(gulp.dest('./web/build/tiles/'));
+});
+
+gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
+    nsg({
+        src: [
+            'web/build/tiles/*.png'
+        ],
+        spritePath: 'web/build/tiles/sprites/tilessprite.png',
+        stylesheetPath: 'web/build/tiles/sprites/tilessprite.styl'
+    }, function (err) {
+        cb(err);
+    });
 });
