@@ -4,6 +4,7 @@
 var del = require('del');
 var gulp = require('gulp');
 var hexagonalLayout = require('./buildsrc/sprite-generator/layout/hexagonal');
+var jsonSpritesheet = require('./buildsrc/sprite-generator/stylesheet/json');
 var nsg = require('node-sprite-generator');
 var svg2png = require('gulp-svg2png');
 var webpack = require('webpack-stream');
@@ -48,7 +49,8 @@ gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
         ],
         layout: hexagonalLayout,
         spritePath: 'web/build/tiles/sprites/tilessprite.png',
-        stylesheetPath: 'web/build/tiles/sprites/tilessprite.styl'
+        stylesheet: jsonSpritesheet,
+        stylesheetPath: 'web/build/tiles/sprites/tilessprite.json'
     }, function (err) {
         cb(err);
     });
