@@ -30,6 +30,7 @@ export default class MapWorld{
         });
         this._renderer.setClearColor(0xffffff);
         this._renderer.setSize(width, height);
+        this._renderer.render(this._scene, this._camera);
 
         this._grid = new Grid(numX, numY);
         this._scene.add(this._grid);
