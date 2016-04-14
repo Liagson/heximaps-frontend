@@ -3,6 +3,7 @@
  */
 import GridBg from './GridBg';
 import GridBorder from './GridBorder';
+var Promise = require('promise');
 import THREE from 'three';
 
 const Grid = function (numX, numY, size = 35){
@@ -21,6 +22,13 @@ const Grid = function (numX, numY, size = 35){
 
 Grid.prototype = Object.create(THREE.Object3D.prototype);
 Grid.prototype.constructor = Grid;
+
+Grid.prototype.load = function(){
+    return Promise.all([
+       this._gridBg.load()
+    ]);
+};
+
 Grid.prototype.setTileType = function(x, y, tileType){
     this._gridBg.setTileType(x, y, tileType);
 };

@@ -11,6 +11,9 @@ export default class MapWorld{
             x: -1,
             y: -1
         };
+
+        this.isReady = false;
+
         this._cursorSectorListener = function(){};
 
         const width = canvas.offsetWidth;
@@ -32,6 +35,13 @@ export default class MapWorld{
         this._scene.add(this._grid);
 
         canvas.addEventListener('mousemove', this._onMouseMoved.bind(this));
+    }
+    load(){
+        const world = this;
+
+        return this._grid.load().then(function(){
+            world.isReady = true;
+        });
     }
     render(){
         this._renderer.render(this._scene, this._camera);

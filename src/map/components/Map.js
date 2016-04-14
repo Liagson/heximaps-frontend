@@ -52,7 +52,9 @@ class Map extends React.Component {
                 map.setTileType(x, y, tileType);
             });
         });
-        map.render();
+        map.load().then(function(){
+            map.render();
+        });
 
         window.addEventListener('resize', this._updateSize.bind(this));
 
@@ -76,7 +78,7 @@ class Map extends React.Component {
         });
     }
     render() {
-        if(this._map !== null){
+        if(this._map !== null && this._map.isReady){
             this._map.render();
         }
 

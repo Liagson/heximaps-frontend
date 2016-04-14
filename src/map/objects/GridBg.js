@@ -31,6 +31,31 @@ const GridBg = function (numX, numY, size = 35){
 
 GridBg.prototype = Object.create(THREE.Mesh.prototype);
 GridBg.prototype.constructor = GridBg;
+
+GridBg.prototype.load = function(){
+    const gridBg = this;
+
+    return new Promise(function (resolve, reject) {
+        gridBg._texture = new THREE.TextureLoader()
+            .load(
+                'build/tiles/sprites/tilessprite.png',
+                function(){
+                    gridBg.material.uniforms.tiles = {
+                        type: 't',
+                        texture: gridBg._texture,
+                        value: gridBg._texture
+                    };
+
+                    resolve({});
+                },
+                function(){},
+                function(){
+                    reject();
+                }
+            );
+    });
+};
+
 GridBg.prototype.setTileType = function(x, y, tileType){
     const offset = y*this._numX + x;
 
@@ -50,6 +75,8 @@ GridBg.prototype.setTileType = function(x, y, tileType){
 GridBg.prototype.dispose = function(){
     this.geometry.dispose();
     this.material.dispose();
+
+    this._texture.dispose();
 };
 
 export default GridBg;
