@@ -3,6 +3,7 @@
  */
 var del = require('del');
 var gulp = require('gulp');
+var hexagonalLayout = require('./buildsrc/sprite-generator/layout/hexagonal');
 var nsg = require('node-sprite-generator');
 var svg2png = require('gulp-svg2png');
 var webpack = require('webpack-stream');
@@ -45,6 +46,7 @@ gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
         src: [
             'web/build/tiles/*.png'
         ],
+        layout: hexagonalLayout,
         spritePath: 'web/build/tiles/sprites/tilessprite.png',
         stylesheetPath: 'web/build/tiles/sprites/tilessprite.styl'
     }, function (err) {
