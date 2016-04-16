@@ -14,7 +14,7 @@ const InstancedHexagonBufferGeometry = function (numX, numY, size = 35){
     const vertices = new THREE.BufferAttribute(new Float32Array(generatedTile.vertices), 2);//ItemSize 2 (x, y)
     this.addAttribute('position', vertices);
 
-    const vertexIds = new THREE.BufferAttribute(new Float32Array([0, 1, 2, 3, 4, 5 , 0]), 1);//ItemSize 2 (x, y)
+    const vertexIds = new THREE.BufferAttribute(new Float32Array([0, 5, 4, 3, 2, 1 , 0]), 1);//ItemSize 2 (x, y)
     this.addAttribute('vertexId', vertexIds);
 
     this.setIndex(new THREE.BufferAttribute(new Uint16Array(generatedTile.indices), 1));
