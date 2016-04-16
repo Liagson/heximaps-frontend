@@ -62,6 +62,15 @@ GridBg.prototype.load = function(){
                     type: 'f',
                     value: (response.data.images[0].width/2) / response.data.width
                 };
+
+                var tileSize = response.data.images[0].width/2;
+                var widthWithoutBase = response.data.width - tileSize*2;
+                var tilesPerRow = 1 + Math.floor(widthWithoutBase / (tileSize*1.5));
+
+                gridBg.material.uniforms.tilesPerRow = {
+                    type: 'f',
+                    value: tilesPerRow
+                };
             })
     ]);
 };

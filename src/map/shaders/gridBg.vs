@@ -6,6 +6,7 @@ attribute float vertexId;
 
 uniform float size;
 uniform float texTileSize;
+uniform float tilesPerRow;
 
 varying float fTileType;
 varying vec2 fUV;
@@ -28,8 +29,15 @@ mat4 getTranslationMatrix(vec2 coordinate, float displSize){
     return translationMatrix;
 }
 
+vec2 getTileCoordsFromType(float pTileType){
+    float y = floor(pTileType/tilesPerRow);
+    float x = pTileType - y*tilesPerRow;
+
+    return vec2(x, y);
+}
+
 void main() {
-    vec4 calculatedfUV = getTranslationMatrix(vec2(tileType, 0.0), texTileSize) * getVertxPos(vertexId);
+    vec4 calculatedfUV = getTranslationMatrix(getTileCoordsFromType(tileType), texTileSize) * getVertxPos(vertexId);
 
     fUV = vec2(calculatedfUV.x, calculatedfUV.y);
     gl_Position = projectionMatrix * modelViewMatrix * getTranslationMatrix(gridCoordinate, size) * vec4(position, 1.0);
