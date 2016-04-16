@@ -65,7 +65,7 @@ module.exports = function(images, options, callback){
 
         return _.extend({
             x: x,
-            y: y
+            y: sideSize - Math.sqrt(3.0)*tileSize -y
         }, image);
     });
 

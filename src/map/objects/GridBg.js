@@ -1,6 +1,7 @@
 /**
  * Created by tello on 25/03/2016.
  */
+import axios from 'axios';
 import gridBgFs from '../shaders/gridBg.fs';
 import gridBgVs from '../shaders/gridBg.vs';
 import InstancedHexagonBufferGeometry from '../geometries/InstancedHexagonBufferGeometry';
@@ -35,25 +36,34 @@ GridBg.prototype.constructor = GridBg;
 GridBg.prototype.load = function(){
     const gridBg = this;
 
-    return new Promise(function (resolve, reject) {
-        gridBg._texture = new THREE.TextureLoader()
-            .load(
-                'build/tiles/sprites/tilessprite.png',
-                function(){
-                    gridBg.material.uniforms.tiles = {
-                        type: 't',
-                        texture: gridBg._texture,
-                        value: gridBg._texture
-                    };
+    return Promise.all([
+        new Promise(function (resolve, reject) {
+            gridBg._texture = new THREE.TextureLoader()
+                .load(
+                    'build/tiles/sprites/tilessprite.png',
+                    function(){
+                        gridBg.material.uniforms.tiles = {
+                            type: 't',
+                            texture: gridBg._texture,
+                            value: gridBg._texture
+                        };
 
-                    resolve({});
-                },
-                function(){},
-                function(){
-                    reject();
-                }
-            );
-    });
+                        resolve({});
+                    },
+                    function(){},
+                    function(){
+                        reject();
+                    }
+                );
+        }),
+        axios.get('build/tiles/sprites/tilessprite.json')
+            .then(function (response) {
+                gridBg.material.uniforms.texTileSize = {
+                    type: 'f',
+                    value: (response.data.images[0].width/2) / response.data.width
+                };
+            })
+    ]);
 };
 
 GridBg.prototype.setTileType = function(x, y, tileType){

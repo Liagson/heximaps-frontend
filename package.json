@@ -44,6 +44,7 @@
     "webpack-stream": "^3.1.0"
   },
   "dependencies": {
+    "axios": "^0.9.1",
     "domready": "^1.0.8",
     "immutable": "^3.7.6",
     "promise": "^7.1.1",

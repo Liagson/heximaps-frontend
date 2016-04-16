@@ -1,5 +1,6 @@
-varying float fTileType;
+varying vec2 fUV;
+uniform sampler2D tiles;
 
 void main() {
-    gl_FragColor = vec4(fTileType / 5.0, 0.0, 0.0, 1.0); //At the moment 5 types
+    gl_FragColor = texture2D(tiles, fUV);
 }
