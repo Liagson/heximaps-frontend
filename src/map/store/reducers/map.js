@@ -17,7 +17,7 @@ const map = function(state = [], action){
 
                 for(let x = 0; x < sizeX; x++){
                     //Get random tile type
-                    const randomTileType = Math.floor((Math.random() * 5));
+                    const randomTileType = Math.floor((Math.random() * 29));
 
                     rowTiles.push(randomTileType);
                 }
