@@ -38,7 +38,7 @@ gulp.task('tiles.clean', function () {
 
 gulp.task('tiles.convert', ['tiles.clean'],function () {
     return gulp.src('./src/map/tiles/*.svg')
-        .pipe(svg2png())
+        .pipe(svg2png(0.285714286)) //Scaling factor to get 140px width
         .pipe(gulp.dest('./web/build/tiles/'));
 });
 
