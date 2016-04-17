@@ -31,6 +31,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.1",
+    "gulp-pngmin": "^0.1.4",
     "gulp-svg2png": "^1.0.0",
     "node-sprite-generator": "^0.10.1",
     "raw-loader": "^0.5.1",

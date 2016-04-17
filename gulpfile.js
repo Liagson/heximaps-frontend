@@ -6,6 +6,7 @@ var gulp = require('gulp');
 var hexagonalLayout = require('./buildsrc/sprite-generator/layout/hexagonal');
 var jsonSpritesheet = require('./buildsrc/sprite-generator/stylesheet/json');
 var nsg = require('node-sprite-generator');
+var pngmin = require('gulp-pngmin');
 var svg2png = require('gulp-svg2png');
 var webpack = require('webpack-stream');
 
@@ -39,6 +40,7 @@ gulp.task('tiles.clean', function () {
 gulp.task('tiles.convert', ['tiles.clean'],function () {
     return gulp.src('./src/map/tiles/*.svg')
         .pipe(svg2png(0.285714286)) //Scaling factor to get 140px width
+        .pipe(pngmin())
         .pipe(gulp.dest('./web/build/tiles/'));
 });
 
