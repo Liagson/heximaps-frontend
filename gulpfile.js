@@ -8,6 +8,7 @@ var jsonSpritesheet = require('./buildsrc/sprite-generator/stylesheet/json');
 var nsg = require('node-sprite-generator');
 var pngmin = require('gulp-pngmin');
 var svg2png = require('gulp-svg2png');
+var through2 = require('through2');
 var webpack = require('webpack-stream');
 
 gulp.task('default', ['build']);
@@ -45,15 +46,26 @@ gulp.task('tiles.convert', ['tiles.clean'],function () {
 });
 
 gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
-    nsg({
-        src: [
-            'web/build/tiles/*.png'
-        ],
-        layout: hexagonalLayout,
-        spritePath: 'web/build/tiles/sprites/tilessprite.png',
-        stylesheet: jsonSpritesheet,
-        stylesheetPath: 'web/build/tiles/sprites/tilessprite.json'
-    }, function (err) {
-        cb(err);
-    });
+    var files = [];
+
+    return gulp
+        .src('web/build/tiles/*.png')
+        .pipe(through2(
+            {objectMode: true},
+            function (chunk, enc, cb) {
+                files.push(chunk.path);
+                cb(null, chunk)
+            },
+            function (cb) {
+                nsg({
+                    src: files,
+                    layout: hexagonalLayout,
+                    spritePath: 'web/build/tiles/sprites/tilessprite.png',
+                    stylesheet: jsonSpritesheet,
+                    stylesheetPath: 'web/build/tiles/sprites/tilessprite.json'
+                }, function (err) {
+                    cb(err);
+                });
+            }
+        ));
 });
