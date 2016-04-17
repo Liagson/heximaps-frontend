@@ -4,7 +4,7 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack');
 
-module.exports = {
+var config = {
     entry: {
         map: './src/map.js'
     },
@@ -46,3 +46,14 @@ module.exports = {
         })
     ]
 };
+
+var PROD = (process.env.NODE_ENV === 'production');
+if(PROD){
+    config.plugins.push(
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false}
+        })
+    );
+}
+
+module.exports = config;
