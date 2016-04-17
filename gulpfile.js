@@ -7,6 +7,7 @@ var hexagonalLayout = require('./buildsrc/sprite-generator/layout/hexagonal');
 var jsonSpritesheet = require('./buildsrc/sprite-generator/stylesheet/json');
 var nsg = require('node-sprite-generator');
 var pngmin = require('gulp-pngmin');
+var rename = require('gulp-rename');
 var svg2png = require('gulp-svg2png');
 var through2 = require('through2');
 var webpack = require('webpack-stream');
@@ -45,7 +46,9 @@ gulp.task('tiles.convert', ['tiles.clean'],function () {
         .pipe(gulp.dest('./web/build/tiles/'));
 });
 
-gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
+gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert', 'tiles.sprite.generate', 'tiles.sprite.min']);
+
+gulp.task('tiles.sprite.generate', ['tiles.convert'], function(cb){
     var files = [];
 
     return gulp
@@ -68,4 +71,12 @@ gulp.task('tiles.sprite', ['tiles.clean', 'tiles.convert'], function (cb) {
                 });
             }
         ));
+});
+
+gulp.task('tiles.sprite.min', ['tiles.sprite.generate'], function(){
+    return gulp
+        .src('web/build/tiles/sprites/tilessprite.png')
+        .pipe(pngmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('web/build/tiles/sprites/'));
 });

@@ -40,7 +40,7 @@ GridBg.prototype.load = function(){
         new Promise(function (resolve, reject) {
             gridBg._texture = new THREE.TextureLoader()
                 .load(
-                    'build/tiles/sprites/tilessprite.png',
+                    'build/tiles/sprites/tilessprite.min.png',
                     function(){
                         gridBg.material.uniforms.tiles = {
                             type: 't',
