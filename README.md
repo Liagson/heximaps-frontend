@@ -3,15 +3,17 @@
 ## Development
 
 ### Requirements
-1. Node Package Manager
-2. webpack
-    * `npm install -g webpack`
-3. gulp
-    * `npm install -g gulp-cli`
+1. Vagrant
+2. VirtualBox
 
 ### Compile and run
-1. Install npm dependencies
+1. Start and provision the vagrant machine
+    * `vagrant up`
+2. Connect to the vagrant machine
+3. Go to the current directory (in vagrant)
+    * `cd /vagrant`
+4. Install npm dependencies (in vagrant)
     * `npm install`
-2. Compile with gulp. Build files will be created in web/build
+5. Compile (in vagrant)
     * `gulp`
-3. Open web/index.html
+6. Open the web/build.html file in your browser (In your computer)
